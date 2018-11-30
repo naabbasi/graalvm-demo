@@ -21,10 +21,5 @@ public class CallingCFromJava {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        /*val s = Source.newBuilder("llvm", new File("./yourTestProgram.bc")).build
-        val c = Context.newBuilder().allowNativeAccess(true).build()
-        val lib = c.eval(s)
-        val fn = lib.getMember("printHello")
-        fn.executeVoid()*/
     }
 }
