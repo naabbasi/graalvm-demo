@@ -18,6 +18,11 @@
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.graalvm</groupId>
+			<artifactId>graal-sdk</artifactId>
+			<version>1.0.0-rc7</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -36,7 +41,7 @@
 							<archive>
 								<manifest>
 									<mainClass>
-										edu.learn.graalvmdemo.GraalvmDemoApplication
+										edu.learn.graalvmdemo.c.CallingCFromJava
 									</mainClass>
 								</manifest>
 							</archive>
