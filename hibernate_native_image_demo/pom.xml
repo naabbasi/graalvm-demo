@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.learn</groupId>
-    <artifactId>hibenrate_native_image_demo</artifactId>
+    <artifactId>hibernate_native_image_demo</artifactId>
     <version>1.0</version>
 
     <properties>
@@ -32,6 +32,18 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.13.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.21.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-graalvm</artifactId>
+            <version>5.4.12.Final</version>
         </dependency>
 
         <dependency>
