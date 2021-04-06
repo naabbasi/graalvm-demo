@@ -16,6 +16,5 @@ public class GraalvmDemoApplication {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 }

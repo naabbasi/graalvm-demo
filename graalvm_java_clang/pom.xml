@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>edu.learn</groupId>
-	<artifactId>graalvm-demo</artifactId>
+	<artifactId>graalvm_java_clang</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -14,19 +14,22 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>1.8</java.version>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<graalvm.version>21.0.0.2</graalvm.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.graalvm</groupId>
+			<groupId>org.graalvm.sdk</groupId>
 			<artifactId>graal-sdk</artifactId>
-			<version>1.0.0-rc7</version>
+			<version>${graalvm.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>graalvm-helloworld</finalName>
+		<finalName>GraalvmDemoApplication</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -52,12 +55,26 @@
 					</execution>
 				</executions>
 			</plugin>
+
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<groupId>org.graalvm.nativeimage</groupId>
+				<artifactId>native-image-maven-plugin</artifactId>
+				<version>${graalvm.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>native-image</goal>
+						</goals>
+						<phase>package</phase>
+					</execution>
+				</executions>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+					<imageName>GraalvmNativeApplication</imageName>
+					<mainClass>edu.learn.graalvmdemo.GraalvmDemoApplication</mainClass>
+					<buildArgs>
+						--verbose
+					</buildArgs>
+					<skip>false</skip>
 				</configuration>
 			</plugin>
 		</plugins>
