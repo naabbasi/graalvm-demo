@@ -1,21 +1,18 @@
 package edu.learn;
 
+import edu.learn.entities.Person;
 import edu.learn.repos.PersonRepo;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.UUID;
+
 @Slf4j
 public class StartApp {
-    /*private static Logger logger;
-    static {
-        LoggerContext loggerContext = Configurator.initialize(null, ConfigurationSource.fromResource("/log4j2.xml", null));
-        System.out.printf("Is Logger initialized: %b\n", loggerContext.isStarted());
-
-        logger = LoggerFactory.getLogger(StartApp.class);
-    }*/
-
     public static void main(String[] args) {
+        System.out.println("Hey... Hibernate with GraalVM");
         var personRepo = new PersonRepo();
-        System.out.println("Hey... GraalVM");
+
+        personRepo.save(new Person("Noman Ali", "Abbasi"));
         log.info("All Person(s): {}", personRepo.list());
     }
 }
