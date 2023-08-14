@@ -11,9 +11,9 @@ import java.io.IOException;
 public class CallingCFromJava {
     public static void main(String[] args) {
         try {
-            Source source = Source.newBuilder("llvm", new File("/opt/workspace/graalvm-demo/c-sample/helloworld.bc")).build();
+            Source source = Source.newBuilder("llvm", new File("/disk1/Workspace/GraalVM/graalvm-demo/graalvm_java_clang/c-sample/helloworld.bc")).build();
             Context context = Context.newBuilder()
-                    .allowIO(true)
+                    .allowAllAccess(true)
                     .allowNativeAccess(true).build();
             Value lib = context.eval(source);
             Value function = lib.getMember("printHello");
